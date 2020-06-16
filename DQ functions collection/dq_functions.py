@@ -32,7 +32,7 @@ def dq_list_to_freq_table(list_name, index_number = 0, exclude_first_row = True)
 
 
 
-# Test thest functions:
+# Test these functions:
 apps_data = dq_csv_to_list('AppleStore.csv')
 ratings_ft = dq_list_to_freq_table(apps_data, 7)
 
