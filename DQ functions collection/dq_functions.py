@@ -16,14 +16,14 @@ def dq_csv_to_list(csv_file_name):
     return apps_data
 
 # Create frequency table (dictionary) from list
-def dq_list_to_freq_table(list_name, index_number = 0, exclude_first_row = True):
+def dq_list_to_freq_table(data_set, index = 0, exclude_first_row = True):
     freq_table = {}  
     if exclude_first_row:
         first_row = 1
     else:
         first_row = 0    
-    for row in list_name[first_row:]:
-        key = row[index_number]
+    for row in data_set[first_row:]:
+        key = row[index]
         if key in freq_table:
             freq_table[key] += 1
         else:
