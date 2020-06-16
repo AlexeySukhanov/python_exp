@@ -15,32 +15,26 @@ def dq_csv_to_list(csv_file_name):
     opened_file.close
     return apps_data
 
-# Extract one column from list to another new list
-def dq_list_to_one_column(index, exclude_first_row = True):
-    column = []    
+# Create frequency table (dictionary) from list
+def dq_list_to_freq_table(list_name, index_number = 0, exclude_first_row = True):
+    freq_table = {}  
     if exclude_first_row:
         first_row = 1
     else:
-        first_row = 0
-    for row in apps_data[first_row:]:
-        value = row[index]
-        column.append(value)    
-    return column
+        first_row = 0    
+    for row in list_name[first_row:]:
+        key = row[index_number]
+        if key in freq_table:
+            freq_table[key] += 1
+        else:
+            freq_table[key] = 1         
+    return freq_table
 
-# Create frequency table (dictionary) from one-column list
-def dq_column_to_ft(one_column_list):
-    ft = {}
-    for key in one_column_list:
-        if key in ft:
-            ft[key] += 1
-        else: 
-            ft[key] = 1
-    return ft
 
 
 # Test thest functions:
 apps_data = dq_csv_to_list('AppleStore.csv')
-genres = dq_list_to_one_column(11, False)
-genres_fq = dq_column_to_ft(genres)
+ratings_ft = dq_list_to_freq_table(apps_data, 7)
 
-print(genres_fq)
+#print(genres_fq)
+print(ratings_ft)
