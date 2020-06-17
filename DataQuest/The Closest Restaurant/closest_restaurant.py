@@ -17,13 +17,13 @@ def distance(x_1, y_1, x_2, y_2):
 
 def closest_restaurant(x_1, y_1):
     from csv import reader
-    opened_file = open('restaurants.csv')
+    opened_file = open('FastFoodRestaurants.csv')
     read_file = reader(opened_file)
     restaurants_list = list(read_file)
     opened_file.close()
     for row in restaurants_list[1:]:
-        x_2 = int(row[3])
-        y_2 = int(row[4])
+        x_2 = float(row[4])
+        y_2 = float(row[5])
         if 'dist' in locals():
             current_dist = distance(x_1, y_1, x_2, y_2)
             if current_dist < dist:
@@ -34,4 +34,5 @@ def closest_restaurant(x_1, y_1):
             result = row[0]
     return result
     
-closest_restaurant(100, 100)
+closest_restaurant_name = closest_restaurant(100, 100)
+print(closest_restaurant_name)
