@@ -55,7 +55,8 @@ def dq_find_closest_point(x1, y1, x2_index, y2_index, csv_file_name, exclude_fir
 
 
 
-# Test these functions:
+#### Test these functions ####
+    
 #apps_data = dq_csv_to_list('AppleStore.csv')
 #ratings_ft = dq_list_to_freq_table(apps_data, 7)
 
