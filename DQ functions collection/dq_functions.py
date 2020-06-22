@@ -53,6 +53,13 @@ def dq_find_closest_point(x1, y1, x2_index, y2_index, csv_file_name, exclude_fir
             result = row
     return result
 
+# Find hours, munutes, seconds from seconds count
+def dq_seconds_to_time(seconds):
+    hours = seconds // 3600
+    minutes = (seconds - hours * 3600) // 60
+    seconds = (seconds - hours * 3600) % 60
+    return hours, minutes, seconds
+
 
 
 #### Test these functions ####
@@ -63,8 +70,5 @@ def dq_find_closest_point(x1, y1, x2_index, y2_index, csv_file_name, exclude_fir
 #print(genres_fq)
 #print(ratings_ft)
 
-# provided coordinates input
-
-    
 closest_restaurant = dq_find_closest_point(100, 100, 4, 5, 'FastFoodRestaurants.csv')
 print(closest_restaurant)
