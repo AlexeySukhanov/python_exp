@@ -60,7 +60,20 @@ def dq_seconds_to_time(seconds):
     seconds = (seconds - hours * 3600) % 60
     return hours, minutes, seconds
 
-
+# Clears the list from invalid data by determining the correctness of the rows by the number of elements in the row containing headers
+def clean_another_length_rows(datalist, info = False):
+    headers_length = len(datalist[0])
+    origin_length = len(datalist)
+    for index, row in enumerate(datalist):
+        if len(row) != headers_length:
+            if info:
+                print('row number: ', index)
+                print(row, '\n')
+            del datalist[index]        
+    if info:
+        print('origin length: ', origin_length)
+        print('cleaned length: ', len(datalist))        
+    return datalist
 
 #### Test these functions ####
     
